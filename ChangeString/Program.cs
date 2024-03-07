@@ -6,7 +6,7 @@ namespace ChangeString
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, give me a string!");
+            Console.WriteLine("Give me a string!");
             string stringInput = Console.ReadLine();
 
             Console.WriteLine("Now give me a character!");
