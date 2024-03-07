@@ -6,7 +6,9 @@ namespace RightSize
     {
         static void Main(string[] args)
         {
-            foreach (string word in args)
+            string[] words = args;
+
+            foreach (string word in words)
             {
                 if(word.Length > 6)
                 {

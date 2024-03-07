@@ -10,7 +10,7 @@ namespace ChangeString
             string stringInput = Console.ReadLine();
 
             Console.WriteLine("Now give me a character!");
-            char character = Console.ReadLine()[0];
+            char character = Console.ReadLine()[0]; //uses only the first character written
 
             string finalString = "";
             
@@ -18,7 +18,7 @@ namespace ChangeString
             {
                 if (stringInput[i] == character)
                 {
-                    finalString += "X";
+                    finalString += "X"; //Pushes X inside final string if the character matches "character"
                 }
                 else
                 {
