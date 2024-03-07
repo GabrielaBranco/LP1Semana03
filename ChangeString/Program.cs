@@ -13,6 +13,7 @@ namespace ChangeString
             char character = Console.ReadLine()[0];
 
             string finalString = "";
+            
             for (int i = 0; i < stringInput.Length; i++)
             {
                 if (stringInput[i] == character)
