@@ -1,9 +1,9 @@
 using System;
 
-namespace Hero
+namespace HeroPerks
 {
     [Flags]
-    enum HeroPerks
+    public enum Perks
     {
         WaterBreathing = 1 << 0,
         Stealth = 1 << 1, 
