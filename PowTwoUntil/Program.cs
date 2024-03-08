@@ -6,7 +6,7 @@ namespace PowTwoUntil
     {
         static void Main(string[] args)
         {
-            PowersOf2Until5();
+            PowersOf2Until5();//calls method
             PowersOf2Until5();
         }
         private static void PowersOf2Until5()
