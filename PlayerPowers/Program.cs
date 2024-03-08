@@ -1,4 +1,5 @@
 ﻿using System;
+using PlayerPowers;
 
 namespace PlayerPowers
 {
@@ -11,23 +12,56 @@ namespace PlayerPowers
 
             int n = int.Parse(players);
 
-            string[] myPowers = {Powers.Fly.ToString(), Powers.SuperStrength.ToString(), Powers.XRayVision.ToString()};
+            Powers[] myPowers = new Powers[n];
+            Powers powersList = Powers.Fly | Powers.SuperStrength | Powers.XRayVision;
+            
 
-            for(int i = 0; i < n; i++)
+            for(int i = 0; i < myPowers.Length; i++)
             {
-                Console.WriteLine("Choose your powers player " + (i+1) + "->");
-                for(int j = 0; j < myPowers.Length; j++)
+                for(int j = 0; j < 3; j++)
                 {
-                    Console.WriteLine(j + ". " + myPowers[j]);
+                    Console.WriteLine("");
+                    Console.WriteLine("Choose your powers player " + (i+1) + "->");
+                    Console.WriteLine(powersList);
+                    string plyrPowers = Console.ReadLine().ToLower();
+
+                    if(plyrPowers == "fly")
+                    {
+                        myPowers[i] ^= Powers.Fly;
+                    }
+                    else if(plyrPowers == "xrayvision")
+                    {
+                        myPowers[i] ^= Powers.XRayVision;
+                    }
+                    else if(plyrPowers == "superstrength")
+                    {
+                        myPowers[i] ^= Powers.SuperStrength;
+                    }
+                    else if(plyrPowers == "")
+                    {
+                        Console.WriteLine("No Power!");
+                        continue;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Unknown Power!");
+                        continue;
+                    }
                 }
+                Console.WriteLine("Player " + (i+1) + " powers are: ");
+                Console.WriteLine(myPowers[i].ToString());
+                Console.WriteLine("");
 
-                string plyrPowers = Console.ReadLine();
-
-                char[] powers = plyrPowers.ToCharArray();
-
-                Console.WriteLine(powers[0]);
-
+                if((myPowers[i] & Powers.Fly) == Powers.Fly && ((myPowers[i] & Powers.SuperStrength) == Powers.SuperStrength))
+                {
+                    Console.WriteLine("Flying Radiation!");
+                }
+                if((myPowers[i] & Powers.Fly) != Powers.Fly && ((myPowers[i] & Powers.SuperStrength) != Powers.SuperStrength) && ((myPowers[i] & Powers.XRayVision) != Powers.XRayVision))
+                {
+                    Console.WriteLine("No Powers at all!");
+                }
             }
+            
         }
     }
 }
